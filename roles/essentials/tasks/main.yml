@@ -9,9 +9,6 @@
     - unattended-upgrades
     - git
     - ntp
-    - vim
-    - tmux
-    - htop
     - curl
   become: true
   notify:
