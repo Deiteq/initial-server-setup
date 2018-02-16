@@ -8,24 +8,6 @@
     cache_valid_time: 3600
   become: true
 
-- name: Disable root login
-  lineinfile:
-    dest: /etc/ssh/sshd_config
-    regexp: "^PermitRootLogin"
-    line: "PermitRootLogin no"
-    state: present
-  become: true
-  notify: Restart ssh
-
-- name: Disable password authentication
-  lineinfile:
-    dest: /etc/ssh/sshd_config
-    regexp: "^PasswordAuthentication"
-    line: "PasswordAuthentication no"
-    state: present
-  become: true
-  notify: Restart ssh
-
 - name: Only allow ssh access for the newly created user
   lineinfile:
     dest: /etc/ssh/sshd_config
@@ -33,4 +15,31 @@
     line: "AllowUsers {{ user }}"
     state: present
   become: true
-  notify: Restart ssh
+
+- name: Copy custom issue.net
+  copy:
+    src: issue.net
+    dest: /etc/issue.net
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  
+- name: Copy custom sshd
+  copy:
+    src: sshd
+    dest: /etc/pam.d/sshd
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Copy custom sshd_config
+  copy:
+    src: sshd_config
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  notify: Restart ssh 
