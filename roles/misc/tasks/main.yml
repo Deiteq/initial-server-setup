@@ -1,0 +1,28 @@
+---
+
+- name: Copy custom host.conf
+  copy:
+    src: host.conf
+    dest: /etc/host.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Copy custom sysctl.conf
+  copy:
+    src: sysctl.conf
+    dest: /etc/sysctl.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  notify: Restart sysctl
+
+- name: Shared Memory Config
+  lineinfile:
+    dest: /etc/fstab
+    insertafter: EOF
+    line: "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0"
+    state: present
+  become: true    
