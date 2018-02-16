@@ -1,5 +1,4 @@
-/.idea
-/inventory
 /vars/main.yml
+/vars/id_rsa.pub
 *.retry
 *.log
