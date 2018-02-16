@@ -1,9 +1,18 @@
 ---
 
-user: melihovv
+user: desgyz
 password: $6$kgX6rY4/$EOL3Q50Yt8DbriTsqNZpWGVCSSibUVJIaS1BnCadVknfN8.1XXr1MCdkvEbnfS6x7xfYYSghbH7uS.JIXzIy./
 public_key: ~/.ssh/id_rsa.pub
 
-timezone: 'Europe/Moscow'
+timezone: 'Australia/Sydney'
 
 swapfile_size: 1GB
+
+ssh_port: 2222
+
+ufw_default_input_policy: DROP
+ufw_default_output_policy: ACCEPT
+ufw_default_forward_policy: DROP
+ufw_default_application_policy: SKIP
+ufw_ipv6: "no"
+ufw_rules: [{ port: {{ ssh_port }}, proto: tcp, rule: allow}]
