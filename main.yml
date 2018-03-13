@@ -17,13 +17,12 @@
       tags: fail2ban
 
     - name: misc
-      tags: misc      
+      tags: misc         
 
     - name: kamaln7.swapfile
       tags: swapfile
-      become: true
+      become: true   
 
     - name: franklinkim.ufw
       tags: ufw
       become: true
-      
