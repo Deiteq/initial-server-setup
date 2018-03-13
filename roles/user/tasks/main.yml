@@ -31,3 +31,10 @@
     user: "{{ user }}"
     key: "{{ lookup('file', public_key) }}"
   become: true
+
+- name: Add ssh agent line to sudoers
+  lineinfile: 
+    dest: /etc/sudoers
+    state: present
+    regexp: SSH_AUTH_SOCK
+    line: Defaults env_keep += "SSH_AUTH_SOCK"  
