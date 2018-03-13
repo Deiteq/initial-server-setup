@@ -42,4 +42,11 @@
     group: root
     mode: 0644
   become: true
-  notify: Restart ssh 
+
+- name: Setup alternate SSH port
+  lineinfile:
+    dest: "/etc/ssh/sshd_config"
+    regexp: "^Port"
+    line: "Port {{ ssh_port }}" 
+  become: true
+  notify: Restart ssh  
