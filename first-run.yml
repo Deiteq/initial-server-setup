@@ -5,7 +5,7 @@
   remote_user: root  
 
   vars_files:
-    - vars/main.yml
+    - vars/first-run.yml
   
   roles:
     - name: user
@@ -17,11 +17,9 @@
   pre_tasks:
     - name: Update and install python
       raw: apt update && apt install -y python2.7 python-minimal
-      become: true
 
     - name: Update all packages
       apt:
         update_cache: yes
         upgrade: safe
         autoremove: yes
-      become: true
