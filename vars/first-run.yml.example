@@ -1,0 +1,6 @@
+---
+
+user: desgyz
+password: $6$kgX6rY4/$EOL3Q50Yt8DbriTsqNZpWGVCSSibUVJIaS1BnCadVknfN8.1XXr1MCdkvEbnfS6x7xfYYSghbH7uS.JIXzIy./
+public_key: ~/.ssh/id_rsa.pub
+ssh_port: 2222
