@@ -16,3 +16,5 @@ ufw_default_forward_policy: DROP
 ufw_default_application_policy: SKIP
 ufw_ipv6: "no"
 ufw_rules: [{ port: {{ ssh_port }}, proto: tcp, rule: allow}]
+
+ansible_port: "{{ ssh_port }}"
