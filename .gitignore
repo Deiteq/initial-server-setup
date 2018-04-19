@@ -4,3 +4,5 @@
 *.log
 /vars/first-run.yml
 .vscode
+ansible_hosts
+ansible.log
